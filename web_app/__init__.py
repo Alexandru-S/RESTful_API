@@ -13,6 +13,9 @@ from .job_title import JobTitle
 
 app = Flask(__name__)
 api = Api(app)
+
+
+
 app.config['SQLALCHEMY_DATABASE_URI'] = config.SQLALCHEMY_DATABASE_URI
 
 
