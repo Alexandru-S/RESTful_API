@@ -1,5 +1,6 @@
 import json
 import datetime
+from sqlalchemy import and_
 
 
 def date_converter(o):
@@ -14,9 +15,15 @@ def from_sql(row):
     return new_data
 
 
-
 def list_all(model):
     query = model.query.all()
+    result = list(map(from_sql, query))
+    return_result = [json.loads(x) for x in result]
+    return return_result
+
+
+def list_with_var1(model, keyz, date_limit, var1):
+    query = model.query.filter(and_(keyz == var1, date_limit >= datetime.date.today())).all()
     result = list(map(from_sql, query))
     return_result = [json.loads(x) for x in result]
     return return_result
