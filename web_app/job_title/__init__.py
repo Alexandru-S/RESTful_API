@@ -3,7 +3,7 @@ from web_app import abort
 from web_app import reqparse
 from .models import JOB_TITLE
 from web_app.crud import list_all
-from flask_httpauth import HTTPTokenAuth, HTTPBasicAuth
+from flask_httpauth import HTTPBasicAuth
 from werkzeug.security import generate_password_hash, check_password_hash
 from web_app import db_creds
 auth = HTTPBasicAuth()
