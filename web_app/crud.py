@@ -19,7 +19,8 @@ def from_sql(row):
         URL = ('https://restcountries.eu/rest/v2/alpha?codes={code1};{code1};{code1}').format(code1 = row.COUNTRY_CODE)
         r = requests.get(url=URL)
         data = r.json()
-        new_new_data['COUNTRY_CODE'] = data[0]['name']
+        new_new_data['COUNTRY'] = data[0]['name']
+        new_new_data.pop('COUNTRY_CODE')
     return new_new_data
 
 
@@ -36,7 +37,7 @@ def list_with_number(model, keyz, varnum):
 
 
 def list_with_var1(model, keyz, date_limit, var1):
-    query = model.query.filter(and_(keyz == var1, date_limit >= datetime.date.today())).all()
+    query = model.query.filter(and_(keyz == var1, date_limit > datetime.date.today())).all()
     result = list(map(from_sql, query))
     return result
 
