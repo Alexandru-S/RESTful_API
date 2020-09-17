@@ -1,5 +1,4 @@
-"""
-The JobTitle Module.
+"""The JobTitle Module.
 
 This module contains the JobTitle Class and logic for the
 executions to perform as requested.
