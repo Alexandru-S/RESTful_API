@@ -1,4 +1,5 @@
-"""The JobTitle Module.
+"""
+The JobTitle Module.
 
 This module contains the JobTitle Class and logic for the
 executions to perform as requested.
@@ -33,7 +34,6 @@ class JobTitle(Resource):
     decorators = [auth.login_required]
 
     def get(self, active=None):
-        print('ACTIVE'*40, type(active))
         if active is None:
             result = list_all(JOB_TITLE)
             return result

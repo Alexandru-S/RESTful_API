@@ -1,5 +1,3 @@
-'''from flask_sqlalchemy import SQLAlchemy
-db = SQLAlchemy()'''
 from web_app import db
 
 
