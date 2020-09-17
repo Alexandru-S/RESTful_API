@@ -22,18 +22,27 @@ git clone <https://github.com/Alexandru-S/RESTful_API.git>
 
 Once the code is cloned to your directory a virtual environment will need to be created to store the python packages we are using.  
 This can be achieved by running the following commands in the command line:  
->pip install virtualenv #if virtualenv is not present in the system already
-virtualenv --python python3 env3 # to create a python3 virtual environment
-source env3/bin/activate # to activate the environment  
+##### if virtualenv is not present in the system already
+> pip install virtualenv    
+##### create a python3 virtual environment
+> virtualenv --python python3 env3
+##### activate the environment  
+> source env3/bin/activate
+##### install all the required packages
 cd RESTful_API  
-pip install -r requirements.txt # to install all the required packages
-python main.py # to run the application  
-CTRL + C # to stop the application  
-deactivate # to exit the virtual environment  
+> pip install -r requirements.txt
+
+After all the packages have been succesfully installed in the system we can go ahead and run the application by executing the following commands:  
+##### run the application  
+> python main.py 
+##### stop the application  
+> CTRL + C 
+###### exit the virtual environment  
+> deactivate
 
 
 
 
-note about https://restcountries.eu/rest/v2/name/irl?fullText=true format not working, thus needing to use the https://restcountries.eu/rest/v2/alpha?codes={code1};{code1};{code1} format  
+note about <https://restcountries.eu/rest/v2/name/irl?fullText=true> format not working, thus needing to use the <https://restcountries.eu/rest/v2/alpha?codes={code1};{code1};{code1}> format  
 note about needing to use a better method than calling an api to convert country codes to countrys names
-note about regparse deprecation https://flask-restful.readthedocs.io/en/latest/reqparse.html
+note about regparse deprecation <https://flask-restful.readthedocs.io/en/latest/reqparse.html>
