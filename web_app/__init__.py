@@ -7,8 +7,9 @@ from flask_sqlalchemy import SQLAlchemy
 db = SQLAlchemy()
 
 from .department import Department
-from .badge import Badge
 from .employee import Employee
+from .badge import Badge
+#from .employee import Employee
 from .job_title import JobTitle
 
 app = Flask(__name__)
@@ -22,6 +23,6 @@ app.config['SQLALCHEMY_DATABASE_URI'] = config.SQLALCHEMY_DATABASE_URI
 db.init_app(app)
 
 api.add_resource(Department, '/department')
-api.add_resource(Badge, '/badges', '/badges/<string:var1>', '/badges?badge_number=<int:badgeid>')
-api.add_resource(Employee, '/employees')
+api.add_resource(Badge, '/badges', '/badges/<string:var1>')
+api.add_resource(Employee, '/employees', '/employees/<string:var1>')
 api.add_resource(JobTitle, '/job_titles', '/job_titles/<string:active>')

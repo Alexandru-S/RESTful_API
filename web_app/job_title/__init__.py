@@ -1,7 +1,11 @@
 from web_app import Resource
 from web_app import abort
+from web_app import reqparse
 from .models import JOB_TITLE
 from web_app.crud import list_all
+
+db_get_args  = reqparse.RequestParser()
+db_get_args.add_argument("badge_number", type=int, help="Value of key not int")
 
 
 class JobTitle(Resource):
