@@ -1,7 +1,30 @@
 # RESTful_API
 
 A simple web app using the Amazon RDS Oracle database to serve information using a RESTfull API with basic authentication.
-
+<pre>RESTful_API
+├── config.py
+├── main.py
+├── README.md
+├── requirements.txt
+├── <font color="#3465A4"><b>tests</b></font>
+│   └── test.py
+└── <font color="#3465A4"><b>web_app</b></font>
+    ├── <font color="#3465A4"><b>badge</b></font>
+    │   ├── __init__.py
+    │   ├── models.py
+    ├── crud.py
+    ├── db_creds.py <font color="#f44336"><b>This file needs to be added by user, contains the db credentials, instructions below</b></font>
+    ├── <font color="#3465A4"><b>department</b></font>
+    │   ├── __init__.py
+    │   ├── models.py
+    ├── <font color="#3465A4"><b>employee</b></font>
+    │   ├── __init__.py
+    │   ├── models.py
+    ├── __init__.py
+    ├── <font color="#3465A4"><b>job_title</b></font>
+    │   ├── __init__.py
+    │   ├── models.py
+</pre>
 ## Technologies
 ### Languages
 Python 3.8.2
@@ -112,4 +135,4 @@ The link to the reqparse announcement here <https://flask-restful.readthedocs.io
 ### Basic Authentication
 The HTTPBasicAuth package is used for generating a login popup asking for username and password.  
 The username and password will then be compared to the stored information.  
-Due to not having a USER table with login information, the pasword and username are fetched from the ones given in the db_cred.py file.
+Due to not having a USER table with login information, the password and username are fetched from the ones given in the db_cred.py file.
