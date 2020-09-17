@@ -9,7 +9,6 @@ db = SQLAlchemy()
 from .department import Department
 from .employee import Employee
 from .badge import Badge
-#from .employee import Employee
 from .job_title import JobTitle
 
 app = Flask(__name__)

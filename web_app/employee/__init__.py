@@ -9,6 +9,7 @@ from web_app.crud import list_all, check_with_var1, find_by_join
 db_get_args  = reqparse.RequestParser()
 db_get_args.add_argument("department_name", type=str, help="Value of key not int")
 
+
 class Employee(Resource):
     def get(self, var1=None):
         args = db_get_args.parse_args()
@@ -16,7 +17,6 @@ class Employee(Resource):
             result = find_by_join(EMPLOYEE, JOB_TITLE, DEPARTMENT, args.department_name)
             print('RESULT', result)
             return result
-
         if var1 is None:
             result = list_all(EMPLOYEE)
             return result

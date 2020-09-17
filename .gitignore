@@ -11,7 +11,7 @@ ENV/
 # Installer logs
 pip-log.txt
 pip-delete-this-directory.txt
-db_creds.py
+web_app/db_creds.py
 
 # Unit test / coverage reports
 htmlcov/
