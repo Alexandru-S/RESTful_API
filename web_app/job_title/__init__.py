@@ -1,10 +1,10 @@
-# coding=utf-8
 """
 The JobTitle Module.
 
 This module contains the JobTitle Class and logic for the
 executions to perform as requested.
 """
+# coding=utf-8
 
 from web_app import Resource
 from web_app import abort

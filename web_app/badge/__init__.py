@@ -1,10 +1,10 @@
-# coding=utf-8
 """
 The Badge Module.
 
 This module contains the Badge Class and logic for the
 executions to perform as requested.
 """
+# coding=utf-8
 
 from web_app import Resource
 from .models import BADGE
