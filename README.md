@@ -61,7 +61,7 @@ This endpoint will retrieve back all (**BADGE_STATUS** == active) **AND** (**BAD
 As per the instruction provided.  
 Should no badges be active a **404 error** message will be returned.  
 
-#### GET /badges?badge_number=[badge_number]
+#### GET /badges?badge_number=badge_number
 Only the badge number that matches the query parameter will be returned, if it exists.  
 If it doesn't exist a 404 error will be returned.  
 If the format is malformed or not matching specifications a **422 error** will be returned by the reqparse add_argument() function.
@@ -96,16 +96,18 @@ This requires a left join between the **EMPLOYEE**, **JOB_TITLE** and **DEPARTME
 ## Observations
 ### restcountries.eu
 During development, while attempting to call the **restcountries** recommended API endpoint for country names I noticed that while it being given **irl** it would not return Ireland. This was due to the **COUNTRY_CODE** value being correct for alpha encoding but not being the official supported country prefix which is ie. Thus I was forced to get creative and instead query by alpha encodings which were able to cover all edge cases.  
-#
+
 Thus the endpoint <https://restcountries.eu/rest/v2/name/irl?fullText=true> will not return the name Ireland but if using the alternative endpoint <https://restcountries.eu/rest/v2/alpha?codes=irl;irl;irl> the name of the country can be extracted from the returned json.  
-#
+
 While this method does work, it is not the most optimal solution.  
 Everytime the **employees** endpoint is called, it has to make a call to the **restcountries** API. Thus the time delay is significantly increased and should the number of rows increase into the thousands it will adversely effect this endpoint.  
+
 A better solution would be to perhaps have a table which can have the **COUNTRY_NAMES** as a variable. Therefore to get country names we would only have to do a basic join rather than query another API.
-#
+
 ### reqparse
-I 
-note about regparse deprecation <https://flask-restful.readthedocs.io/en/latest/reqparse.html>
+I chose to use the reqparse library in combination with the flask_restful.  
+Although reqparse is deprecated, it is still stable and working, the decision to use it was made due to the marshmallow library not being thoroughly enough documented for my needs.
+The link to the reqparse announcement here <https://flask-restful.readthedocs.io/en/latest/reqparse.html>
 
 ### Basic Authentication
 The HTTPBasicAuth package is used for generating a login popup asking for username and password.  
