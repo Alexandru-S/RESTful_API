@@ -11,8 +11,6 @@ Flask 1.1.2
 Oracle AWS RDS Standard Edition 2 Release 19.0.0.0.0 - Production
 Version 19.7.0.0.0
 
-
-
 ## Instructions on Running the Code
 
 I have developed and run the code on Ubuntu 20.04.1 LTS. Should you wish to run the code on a different OS please take care to make sure that the packages in use are supported on the different systems.
@@ -42,9 +40,8 @@ After all the packages have been successfully installed in the system we can go 
 > stop the application  
 You need to click on the command line that is running the web app and click `CTRL + C `
 
->exit the virtual environment  
+> exit the virtual environment  
 `deactivate `
-
 
 ## Running the application in Localhost
 Add Explanation  here
@@ -76,7 +73,6 @@ As the above example, no more options were added due to none more being asked at
 #### GET /job_titles
 Returns all job titles as per requirements.
 
-
 ### Employees
 
 #### GET /employees
@@ -96,7 +92,6 @@ Should no employees be current a **404 error** message will be returned.
 #### GET /employees?department_name=[department_name]
 Returns all employees given the department name.
 This requires a left join between the **EMPLOYEE**, **JOB_TITLE** and **DEPARTMENT** tables.
-
 
 ## Observations
 ### restcountries.eu
