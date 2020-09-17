@@ -30,6 +30,12 @@ def list_all(model):
     return result
 
 
+def list_all_join(model1, model2, var1):
+    query = model1.query.all()
+    result = list(map(from_sql, query))
+    return result
+
+
 def list_with_number(model, keyz, varnum):
     query = model.query.filter(keyz == varnum).all()
     result = list(map(from_sql, query))
@@ -52,3 +58,15 @@ def find_by_join(model1, model2, model3, var2):
     query = db.session.query(model1).filter(model3.DEPARTMENT_NAME == var2).filter(model3.DEPARTMENT_CODE == model2.DEPARTMENT_CODE).filter(model2.JOB_TITLE_CODE == model1.JOB_TITLE_CODE).all()
     result = list(map(from_sql, query))
     return result
+
+
+def find_by_join_2(model1, model2, var1):
+    query = db.session.query(model1).filter(model2.DEPARTMENT_NAME == var1).filter(model2.DEPARTMENT_CODE == model1.DEPARTMENT_CODE).all()
+    result = list(map(from_sql, query))
+    query2 = dict(model2.query.with_entities(model2.DEPARTMENT_NAME, model2.DEPARTMENT_CODE).distinct().all())
+    for x in result:
+        if 'DEPARTMENT_CODE' in x.keys():
+            x['DEPARTMENT_NAME'] = list(query2.keys())[list(query2.values()).index(x['DEPARTMENT_CODE'])]
+            x.pop('DEPARTMENT_CODE')
+    return result
+
