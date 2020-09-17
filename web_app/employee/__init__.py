@@ -1,3 +1,11 @@
+# coding=utf-8
+"""
+The Employee Module.
+
+This module contains the Employee Class and logic for the
+executions to perform as requested.
+"""
+
 from web_app import Resource
 from .models import EMPLOYEE
 from web_app.job_title.models import JOB_TITLE

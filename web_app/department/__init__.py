@@ -1,3 +1,11 @@
+# coding=utf-8
+"""
+The Department Module.
+
+This module contains the Department Class and logic for the
+executions to perform as requested.
+"""
+
 from web_app import Resource
 from .models import DEPARTMENT
 from web_app.crud import list_all
