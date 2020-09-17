@@ -30,14 +30,17 @@ class Employee(Resource):
         args = db_get_args.parse_args()
         if args.department_name is not None:
             result = find_by_join(EMPLOYEE, JOB_TITLE, DEPARTMENT, args.department_name)
+            if result is None or len(result) == 0:
+                abort(422, message="Could not find any employees in that department")
             print('RESULT', result)
             return result
         if var1 is None:
             result = list_all(EMPLOYEE)
             return result
         if var1 == 'active':
-            print('X'*20)
             result = check_with_var1(EMPLOYEE, EMPLOYEE.LEAVE_DATE, EMPLOYEE.LEAVE_DATE,None)
             if result is None or len(result) == 0:
-                abort(404, message="Could not find any active badges")
+                abort(404, message="Could not find any active employees")
             return result
+        else:
+            abort(404, message="Could not find data with that id")

@@ -8,7 +8,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from web_app import db_creds
 auth = HTTPBasicAuth()
 
-users = { db_creds.USERNAME: generate_password_hash(db_creds.PASSWORD)}
+users = {db_creds.USERNAME: generate_password_hash(db_creds.PASSWORD)}
 
 
 @auth.verify_password

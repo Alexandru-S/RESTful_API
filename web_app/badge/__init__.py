@@ -1,3 +1,12 @@
+# coding=utf-8
+
+"""
+The Badge Module.
+
+This module contains the Badge Class and logic for the
+executions to perform as requested.
+"""
+
 from web_app import Resource
 from .models import BADGE
 from web_app import abort
@@ -26,8 +35,11 @@ class Badge(Resource):
 
     def get(self, var1=None):
         args = db_get_args.parse_args()
+
         if args.badge_number is not None:
             result = list_with_number(BADGE, BADGE.BADGE_NUMBER, args.badge_number)
+            if result is None or len(result) == 0:
+                abort(404, message="Could not find any badges with that id")
             return result
 
         if var1 is None:
