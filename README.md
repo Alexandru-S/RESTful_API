@@ -1,13 +1,12 @@
 # RESTful_API
 
 A simple web app using the Amazon RDS Oracle database to serve information using a RESTfull API with basic authentication.
-<pre>RESTful_API
+
+<pre><font color="#3465A4"><b>.RESTful_API</b></font>
 ├── config.py
 ├── main.py
 ├── README.md
 ├── requirements.txt
-├── <font color="#3465A4"><b>tests</b></font>
-│   └── test.py
 └── <font color="#3465A4"><b>web_app</b></font>
     ├── <font color="#3465A4"><b>badge</b></font>
     │   ├── __init__.py
@@ -24,6 +23,11 @@ A simple web app using the Amazon RDS Oracle database to serve information using
     ├── <font color="#3465A4"><b>job_title</b></font>
     │   ├── __init__.py
     │   ├── models.py
+    └── <font color="#3465A4"><b>tests</b></font>
+        ├── db_creds.py <font color="#f44336"><b>File to be added by user, contains the db credentials, instructions below</b></font>
+        ├── __init__.py
+        ├── new_tests.py
+        └── test.py
 </pre>
 ## Technologies
 ### Languages
@@ -56,7 +60,21 @@ This can be achieved by running the following commands in the command line:
 `cd RESTful_API  `  
 `pip install -r requirements.txt`
 
-After all the packages have been successfully installed in the system we can go ahead and run the application by executing the following commands:  
+After all the packages have been successfully installed in the system we can go ahead and run the application.
+
+## Running the application in Localhost (**IMPORTANT**)
+You will need to create a file with the name **db_creds.py** with the following format inside of it  
+```
+HOSTNAME = 'developmentb.xxxxxYOUR_DB_ID_HERExxxxxx.eu-west-1.rds.amazonaws.com'
+USERNAME = 'your_username for the database'
+PASSWORD = 'your_password for the database'
+SID = 'your sid'
+PORT = '1521'
+```
+Once the file is created place one copy of it in the web_app directory and another copy in the tests directory.  
+Why 2? For some reason I was not able to access it from inside the tests directory so added a copy in the tests directory as well.  
+
+Once this is all filled and set up, run the following commands to launch the web app.
 > run the application  
 `python main.py`
 
@@ -66,8 +84,15 @@ You need to click on the command line that is running the web app and click `CTR
 > exit the virtual environment  
 `deactivate `
 
-## Running the application in Localhost
-Add Explanation  here
+If you wish to run the application you will need to cd into the tests directory and run the following commands  
+> cd into tests
+`cd tests`
+
+> Run the small testing script
+`python test.py`
+
+> Run the tests
+`python new_tests.py -v`
 
 ## Feature Explanations
 
