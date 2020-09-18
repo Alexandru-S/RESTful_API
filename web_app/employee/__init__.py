@@ -41,7 +41,6 @@ class Employee(Resource):
             result = find_by_join(EMPLOYEE, JOB_TITLE, DEPARTMENT, args.department_name)
             if result is None or len(result) == 0:
                 abort(422, message="Could not find any employees in that department")
-            print('RESULT', result)
             return result
         if var1 is None:
             result = list_all(EMPLOYEE)
