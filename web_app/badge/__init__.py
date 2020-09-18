@@ -25,17 +25,45 @@ class Badge(Resource):
         args = db_get_args.parse_args()
 
         if args.badge_number is not None:
+            '''
+            If badge number was passed
+                :param model: BADGE instance
+                :param value: BADGE badge_number #for comparison
+                :param args: number passed from url
+                :return: 
+                    if found:
+                    :return: json
+                    else:
+                    :return: error
+            '''
             result = list_with_number(BADGE, BADGE.badge_number, args.badge_number)
             if result is None or len(result) == 0:
                 abort(404, message="Could not find any badges with that id")
             return result
 
         if var1 is None:
+            '''
+            If viewing all badges, use the list_all function
+                :param model: BADGE instance
+                :return: json
+            '''
             result = list_all(BADGE)
             return result
 
         if var1 == 'active':
             result = list_with_var1(BADGE, BADGE.badge_status, BADGE.badge_expiry_date, "Active")
+            '''
+            If active parameter passed
+                :param model: BADGE instance
+                :param value: BADGE status #for comparison
+                :param value: BADGE expiry date #for comparison
+                :param args: string passed from url
+                :return: 
+                    if found:
+                    :return: json
+                    else:
+                    :return: error
+            '''
             if result is None or len(result) == 0:
                 abort(404, message="Could not find any active badges")
             return result
