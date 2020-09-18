@@ -1,5 +1,0 @@
-HOSTNAME = 'developmentb.cbzwztcxfluc.eu-west-1.rds.amazonaws.com'
-USERNAME = 'candidate'
-PASSWORD = 'INTtestv1'
-SID = 'devsuite'
-PORT = '1521'
