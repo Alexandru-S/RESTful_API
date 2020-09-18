@@ -161,3 +161,7 @@ The link to the reqparse announcement here <https://flask-restful.readthedocs.io
 The HTTPBasicAuth package is used for generating a login popup asking for username and password.  
 The username and password will then be compared to the stored information.  
 Due to not having a USER table with login information, the password and username are fetched from the ones given in the db_cred.py file.
+
+### CRUD
+crud.py designated for Create.Read.Update.Delete although due to the requirements of the project only being about reading and listing the only query is that for reading.  
+
