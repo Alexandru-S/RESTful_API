@@ -1,5 +1,7 @@
 # RESTful_API
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/48c49c05bffe42738acd5a6e2f50a2dd)](https://app.codacy.com/manual/alex.sulea/RESTful_API?utm_source=github.com&utm_medium=referral&utm_content=Alexandru-S/RESTful_API&utm_campaign=Badge_Grade_Dashboard)
+
 A simple web app using the Amazon RDS Oracle database to serve information using a RESTfull API with basic authentication.
 
 <pre><font color="#3465A4"><b>.RESTful_API</b></font>
