@@ -12,6 +12,7 @@ ENV/
 pip-log.txt
 pip-delete-this-directory.txt
 web_app/db_creds.py
+web_app/tests/db_creds.py
 
 # Unit test / coverage reports
 htmlcov/
