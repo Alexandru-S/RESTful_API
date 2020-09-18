@@ -47,7 +47,7 @@ class Employee(Resource):
             result = list_all_employees(EMPLOYEE, JOB_TITLE, DEPARTMENT)
             return result
         if var1 == 'active':
-            result = check_with_var1(EMPLOYEE, JOB_TITLE, DEPARTMENT, EMPLOYEE.LEAVE_DATE, None
+            result = check_with_var1(EMPLOYEE, JOB_TITLE, DEPARTMENT, EMPLOYEE.LEAVE_DATE, None)
             if result is None or len(result) == 0:
                 abort(404, message="Could not find any active employees")
             return result

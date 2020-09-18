@@ -31,8 +31,7 @@ def from_sql(row):
     new_new_data = json.loads(new_data)
     if 'COUNTRY_CODE' in new_new_data.keys():
         URL = ('https://restcountries.eu/rest/v2/alpha?codes={code1};{code1};{code1}').format(code1 = row.COUNTRY_CODE)
-        r = requests.get(url=URL)
-        data = r.json()
+        data = requests.get(url=URL).json()
         new_new_data['COUNTRY'] = data[0]['name']
         new_new_data.pop('COUNTRY_CODE')
     return new_new_data
@@ -46,18 +45,7 @@ def list_all(model):
 
 def list_all_employees(model1, model2, model3):
     query = model1.query.all()
-    result = list(map(from_sql, query))
-    query2 = dict(model2.query.with_entities(model2.JOB_TITLE_CODE, model2.JOB_TITLE_NAME).distinct().all())
-    for x in result:
-        if 'JOB_TITLE_CODE' in x.keys():
-            x['JOB_TITLE'] = query2[x['JOB_TITLE_CODE']]
-            x.pop('JOB_TITLE_CODE')
-
-        if 'JOB_TITLE' in x.keys():
-            dep_code = model2.query.filter(model2.JOB_TITLE_NAME == x['JOB_TITLE']).first().DEPARTMENT_CODE
-            dep_name = model3.query.filter(model3.DEPARTMENT_CODE == dep_code).first().DEPARTMENT_NAME
-            x['DEPARTMENT_NAME'] = dep_name
-
+    result = add_keys_helper(model2, model3, list(map(from_sql, query)))
     return result
 
 
