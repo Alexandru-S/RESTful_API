@@ -13,7 +13,7 @@ A simple web app using the Amazon RDS Oracle database to serve information using
     │   ├── __init__.py
     │   ├── models.py
     ├── crud.py
-    ├── db_creds.py <font color="#f44336"><b>This file needs to be added by user, contains the db credentials, instructions below</b></font>
+    ├── db_creds.py <font color="#f44336"><b>File to be added by user, contains the db credentials, instructions below</b></font>
     ├── <font color="#3465A4"><b>department</b></font>
     │   ├── __init__.py
     │   ├── models.py

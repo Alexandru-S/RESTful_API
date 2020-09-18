@@ -36,6 +36,7 @@ db_get_args.add_argument("department_name", type=str, help="Value of key not int
 class Employee(Resource):
     def get(self, var1=None):
         decorators = [auth.login_required]
+        print(decorators)
 
         args = db_get_args.parse_args()
         if args.department_name is not None:
