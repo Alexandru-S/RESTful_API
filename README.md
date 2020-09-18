@@ -48,17 +48,17 @@ The first step is to copy the code to a local directory to be run, this can be a
 Once the code is cloned to your directory a virtual environment will need to be created to store the python packages we are using.  
 This can be achieved by running the following commands in the command line:  
 > if virtualenv is not present in the system already  
-`pip install virtualenv`
+`pip install virtualenv`  
 
 > create a python3 virtual environment  
-`virtualenv --python python3 env3`
+`virtualenv --python python3 env3`  
 
 > activate the environment  
-`source env3/bin/activate`
+`source env3/bin/activate`  
 
 > install all the required packages  
 `cd RESTful_API  `  
-`pip install -r requirements.txt`
+`pip install -r requirements.txt`  
 
 After all the packages have been successfully installed in the system we can go ahead and run the application.
 
@@ -76,23 +76,23 @@ Why 2? For some reason I was not able to access it from inside the tests directo
 
 Once this is all filled and set up, run the following commands to launch the web app.
 > run the application  
-`python main.py`
+`python main.py`  
 
 > stop the application  
-You need to click on the command line that is running the web app and click `CTRL + C `
+You need to click on the command line that is running the web app and click `CTRL + C `  
 
 > exit the virtual environment  
-`deactivate `
+`deactivate `  
 
 If you wish to run the application you will need to cd into the tests directory and run the following commands  
-> cd into tests
-`cd tests`
+> cd into tests  
+`cd tests`  
 
-> Run the small testing script
-`python test.py`
+> Run the small testing script  
+`python test.py`  
 
-> Run the tests
-`python new_tests.py -v`
+> Run the tests  
+`python new_tests.py -v`  
 
 ## Feature Explanations
 
@@ -137,7 +137,7 @@ This query will thus retrieve all current employees and all employees who have a
 The logic to return only the current employees would be (**LEAVE_DATE** == **None**) **OR** (**LEAVE_DATE** > datetime.date.today()) thus only employees still in the company will be retrieved. 
 Should no employees be current a **404 error** message will be returned.  
 
-#### GET /employees?department_name=[department_name]
+#### GET /employees?department_name=department_name
 Returns all employees given the department name.
 This requires a left join between the **EMPLOYEE**, **JOB_TITLE** and **DEPARTMENT** tables.
 
