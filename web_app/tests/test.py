@@ -1,7 +1,6 @@
-#import db_creds
+import db_creds
 import requests
 from requests.auth import HTTPBasicAuth
-from web_app import db_creds
 
 
 BASE = "http://127.0.0.1:5000/"

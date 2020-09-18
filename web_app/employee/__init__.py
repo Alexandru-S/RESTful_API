@@ -8,25 +8,13 @@ executions to perform as requested.
 
 
 from web_app import Resource
+from web_app import auth
 from .models import EMPLOYEE
 from web_app.job_title.models import JOB_TITLE
 from web_app.department.models import DEPARTMENT
 from web_app import abort
 from web_app import reqparse
-from web_app.crud import  check_with_var1, find_by_join, list_all_employees
-from flask_httpauth import HTTPTokenAuth, HTTPBasicAuth
-from werkzeug.security import generate_password_hash, check_password_hash
-from web_app import db_creds
-auth = HTTPBasicAuth()
-
-users = {db_creds.USERNAME: generate_password_hash(db_creds.PASSWORD)}
-
-
-@auth.verify_password
-def verify_password(username, password):
-    if username in users and \
-            check_password_hash(users.get(username), password):
-        return username
+from web_app.crud import check_with_var1, find_by_join, list_all_employees
 
 
 db_get_args = reqparse.RequestParser()
