@@ -41,6 +41,8 @@ class JobTitle(Resource):
 
         if var1 is not None:
             result = find_by_join_2(JOB_TITLE,DEPARTMENT, var1)
+            if result is None or len(result) == 0:
+                abort(422, message="Could not find any job_titles in that department")
             return result
         else:
             abort(404, message="Could not find data with that id")
