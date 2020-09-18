@@ -1,3 +1,11 @@
+"""
+The CRUD Module
+
+This module uses sqlalchemy and flask_sqlalchemy as an ORM to
+perform SQL queries on the instances retrieved and convert them to
+json objects.
+"""
+
 import json
 import datetime
 import requests
@@ -20,11 +28,19 @@ def add_keys_helper(model2, model3, result):
 
 
 def date_converter(o):
+    """ Function converts instance where date format is present to string
+        :param o: DB instance
+        :return: str
+    """
     if isinstance(o, datetime.date):
         return o.__str__()
 
 
 def from_sql(row):
+    """ Function converts DB instance to json object
+        :param row: DB instance
+        :return: json
+    """
     data = row.__dict__.copy()
     data.pop('_sa_instance_state')
     new_data = json.dumps(data, default=date_converter)

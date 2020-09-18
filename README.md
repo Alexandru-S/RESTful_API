@@ -123,6 +123,12 @@ As the above example, no more options were added due to none more being asked at
 #### GET /job_titles
 Returns all job titles as per requirements.
 
+#### GET /job_titles/:department_name
+Returns all job titles with the given department name.
+I was not able to escape the colon (:) in reqparse and the online documentation is deprecated and misleading if one should even use colons.  
+The restcountries.eu uses the semi-colon (;) to split between different variables passed and may recommended to use semi-colons.   
+However given the lack of documentation I instead treated it as another argument without having special characters in front of it.
+
 ### Employees
 
 #### GET /employees

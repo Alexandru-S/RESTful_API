@@ -27,14 +27,37 @@ class Employee(Resource):
     def get(self, var1=None):
         args = db_get_args.parse_args()
         if args.department_name is not None:
+            """ Function activated when employees endpoint is passed and 
+               department_name is given.
+                :param model: EMPLOYEE instance
+                :param model: JOB_TITLE instance
+                :param model: DEPARTMENT instance
+                :param var1: department_name as string
+                :return: json
+            """
             result = find_by_join(EMPLOYEE, JOB_TITLE, DEPARTMENT, args.department_name)
             if result is None or len(result) == 0:
                 abort(422, message="Could not find any employees in that department")
             return result
         if var1 is None:
+            """ Function activated when employees endpoint is passed and 
+                we only want a list of all employees returned back
+                :param model: EMPLOYEE instance
+                :param model: JOB_TITLE instance
+                :param model: DEPARTMENT instance
+                :return: json
+            """
             result = list_all_employees(EMPLOYEE, JOB_TITLE, DEPARTMENT)
             return result
         if var1 == 'active':
+            """ Function activated when employees endpoint is passed and 
+               active argument is given
+                :param model: EMPLOYEE instance
+                :param model: JOB_TITLE instance
+                :param model: DEPARTMENT instance
+                :param var1: active argument as string
+                :return: json
+            """
             result = check_with_var1(EMPLOYEE, JOB_TITLE, DEPARTMENT, EMPLOYEE.leave_date, None)
             if result is None or len(result) == 0:
                 abort(404, message="Could not find any active employees")
