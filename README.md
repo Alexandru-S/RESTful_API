@@ -90,7 +90,7 @@ You should see something like this in your command line
 * Debugger PIN: 101-649-027
 ```
 
-click on the <http://127.0.0.1:5000/> link and then choose to add one of the 4 endpoint options at the end of the URL.  
+Click on the <http://127.0.0.1:5000/> link and then choose to add one of the 4 endpoint options at the end of the URL.  
 A webpage should begin to load and ask for username and password.  
 The user credentials are the same as the ones provided in the db_creds.py
 
