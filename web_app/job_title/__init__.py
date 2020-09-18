@@ -27,10 +27,6 @@ def verify_password(username, password):
         return username
 
 
-db_get_args  = reqparse.RequestParser()
-db_get_args.add_argument("badge_number", type=int, help="Value of key not int")
-
-
 class JobTitle(Resource):
     decorators = [auth.login_required]
 

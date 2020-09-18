@@ -15,12 +15,15 @@ app = Flask(__name__)
 api = Api(app)
 
 
-app.config['SQLALCHEMY_DATABASE_URI'] = config.SQLALCHEMY_DATABASE_URI
-
-
-db.init_app(app)
 
 api.add_resource(Department, '/department')
 api.add_resource(Badge, '/badges', '/badges/<string:var1>')
 api.add_resource(Employee, '/employees', '/employees/<string:var1>')
 api.add_resource(JobTitle, '/job_titles', '/job_titles/<string:var1>')
+
+
+def create_app(config_name):
+    app.config['SQLALCHEMY_DATABASE_URI'] = config_name.SQLALCHEMY_DATABASE_URI
+    app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+    db.init_app(app)
+    return app
