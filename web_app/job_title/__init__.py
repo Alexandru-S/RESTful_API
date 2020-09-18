@@ -11,7 +11,7 @@ from web_app import abort
 from web_app import reqparse
 from .models import JOB_TITLE
 from web_app.department.models import DEPARTMENT
-from web_app.crud import list_all, list_all_join, find_by_join_2
+from web_app.crud import list_all_join, find_by_join_2
 from flask_httpauth import HTTPBasicAuth
 from werkzeug.security import generate_password_hash, check_password_hash
 from web_app import db_creds
