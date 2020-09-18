@@ -36,7 +36,7 @@ class Badge(Resource):
         args = db_get_args.parse_args()
 
         if args.badge_number is not None:
-            result = list_with_number(BADGE, BADGE.BADGE_NUMBER, args.badge_number)
+            result = list_with_number(BADGE, BADGE.badge_number, args.badge_number)
             if result is None or len(result) == 0:
                 abort(404, message="Could not find any badges with that id")
             return result
@@ -46,7 +46,7 @@ class Badge(Resource):
             return result
 
         if var1 == 'active':
-            result = list_with_var1(BADGE, BADGE.BADGE_STATUS, BADGE.BADGE_EXPIRY_DATE,"Active")
+            result = list_with_var1(BADGE, BADGE.badge_status, BADGE.badge_expiry_date, "Active")
             if result is None or len(result) == 0:
                 abort(404, message="Could not find any active badges")
             return result

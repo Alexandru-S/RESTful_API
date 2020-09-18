@@ -3,6 +3,6 @@ from web_app import db
 
 class BADGE(db.Model):
     __tablename__ = 'BADGE'
-    BADGE_NUMBER = db.Column(db.Integer, primary_key=True)
-    BADGE_STATUS = db.Column(db.String(10))
-    BADGE_EXPIRY_DATE = db.Column(db.Date())
+    badge_number = db.Column(db.Integer, primary_key=True)
+    badge_status = db.Column(db.String(10))
+    badge_expiry_date = db.Column(db.Date())

@@ -3,11 +3,11 @@ from web_app import db
 
 class EMPLOYEE(db.Model):
     __tablename__ = 'EMPLOYEE'
-    ID = db.Column(db.Integer, primary_key=True)
-    FIRSTNAME = db.Column(db.String(100))
-    LASTNAME = db.Column(db.String(100))
-    BADGE_NUMBER = db.Column(db.Integer)
-    COUNTRY_CODE = db.Column(db.String(10))
-    JOB_TITLE_CODE = db.Column(db.Integer)
-    START_DATE = db.Column(db.Date())
-    LEAVE_DATE = db.Column(db.Date())
+    id = db.Column(db.Integer, primary_key=True)
+    firstname = db.Column(db.String(100))
+    lastname = db.Column(db.String(100))
+    badge_number = db.Column(db.Integer)
+    country_code = db.Column(db.String(10))
+    job_title_code = db.Column(db.Integer)
+    start_date = db.Column(db.Date())
+    leave_date = db.Column(db.Date())
